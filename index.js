@@ -55,6 +55,8 @@ class Intern extends Employee {
   }
 }
 
+const employeeArray = [];
+
 const addManager = async () => {
   const { name, id, email, officeNumber } = await inquirer.prompt([
     {
@@ -79,6 +81,8 @@ const addManager = async () => {
     }
   ])
   const newManager = new Manager(name, id, email, "Manager", officeNumber)
+  employeeArray.push(newManager);
+  addNewEmployee();
 }
 
 
@@ -118,4 +122,33 @@ const newEmployee = async () => {
       when: (input) => input.role === "Intern"
     }
   ])
+  let newEmployee;
+  if (role === "Engineer") {
+    newEmployee = new Engineer(name, id, email, role, github);
+  } else newEmployee = new Intern(name, id, email, role, school);
+  employeeArray.push(newEmployee);
+  addNewEmployee();
 }
+
+const addNewEmployee = async () => {
+  const { anotherEmployee } = await inquirer.prompt([
+    {
+      type: "confirm",
+      name: "anotherEmployee",
+      message: "do you need to add another employee?"
+    }
+  ])
+  if (anotherEmployee) newEmployee();
+  else writeFile(employeeArray);
+}
+
+const writeFile = (array) => {
+  fs.writeFileSync("./dist/index.html", pageTemplate(array), err => {
+    if (err) console.log(err);
+    else console.log("page created")
+  })
+}
+
+const start = () => addManager();
+
+start();
