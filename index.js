@@ -23,4 +23,34 @@ class Employee {
   getRole() {
     return this.role;
   }
+};
+
+class Manager extends Employee {
+  constructor(name, id, email, role, officeNumber) {
+    super(name, id, email, role, officeNumber)
+    this.officeNumber = officeNumber;
+  }
+  getOfficeNumber() {
+    return this.officeNumber;
+  }
+}
+
+class Engineer extends Employee {
+  constructor(name, id, email, role, gitHub) {
+    super(name, id, email, role);
+    this.gitHub = gitHub;
+  }
+  getGithub() {
+    return this.gitHub;
+  }
+}
+
+class Intern extends Employee {
+  constructor(name, id, email, role, school) {
+    super(name, id, email, role);
+    this.school = school;
+  }
+  getSchool() {
+    return this.school;
+  }
 }
