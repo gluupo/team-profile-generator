@@ -54,3 +54,30 @@ class Intern extends Employee {
     return this.school;
   }
 }
+
+const addManager = () => {
+  inquirer.prompt([
+    {
+      type: "input",
+      name: "name",
+      message: "enter the manager's name:"
+    },
+    {
+      type: "input",
+      name: "id",
+      message: "enter the manager's id:"
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "enter the manager's email:"
+    },
+    {
+      type: "input",
+      name: "officeNumber",
+      message: "enter the manager's office number:"
+    }
+  ]).then(() => ({ name, id, email, officeNumber })) {
+    const newManager = new Manager(name, id, email, "Manager", officeNumber)
+  }
+}
