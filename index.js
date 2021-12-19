@@ -55,8 +55,8 @@ class Intern extends Employee {
   }
 }
 
-const addManager = () => {
-  inquirer.prompt([
+const addManager = async () => {
+  const { name, id, email, officeNumber } = await inquirer.prompt([
     {
       type: "input",
       name: "name",
@@ -77,7 +77,45 @@ const addManager = () => {
       name: "officeNumber",
       message: "enter the manager's office number:"
     }
-  ]).then(() => ({ name, id, email, officeNumber })) {
-    const newManager = new Manager(name, id, email, "Manager", officeNumber)
-  }
+  ])
+  const newManager = new Manager(name, id, email, "Manager", officeNumber)
+}
+
+
+const newEmployee = async () => {
+  const { name, id, email, role, github, school } = await inquirer.prompt([
+    {
+      type: "list",
+      name: "role",
+      message: "choose the employee's role",
+      choices: ["Engineer", "Intern"]
+    },
+    {
+      type: "input",
+      name: "name",
+      message: "enter the employee's name:"
+    },
+    {
+      type: "input",
+      name: "id",
+      message: "enter the employee's id:"
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "enter the employee's email:"
+    },
+    {
+      type: "input",
+      name: "github",
+      message: "enter the employee's github username:",
+      when: (input) => input.role === "Engineer"
+    },
+    {
+      type: "input",
+      name: "school",
+      message: "enter the intern's school:",
+      when: (input) => input.role === "Intern"
+    }
+  ])
 }
