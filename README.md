@@ -17,4 +17,4 @@ as a manager, i want to generate a webpage that displays my team's basic info so
 - when user finishes building their team, they exit the application and the html is generated
 
 ## visuals
-
+[![Image from Gyazo](https://i.gyazo.com/181b770ee50bcf21059a1e04b4141b97.gif)](https://gyazo.com/181b770ee50bcf21059a1e04b4141b97)
