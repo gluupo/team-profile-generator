@@ -2,58 +2,17 @@
 const fs = require('fs');
 const inquirer = require('inquirer')
 
+//page template js
+const generateTeam = require('./src/page-template')
+
+//template provided by instructor anthony
+
 
 //employee profiles
-class Employee {
-  constructor(name, id, email, role) {
-    this.name = name;
-    this.id = id;
-    this.email = email;
-    this.role = 'Employee'
-  }
-  getName() {
-    return this.name;
-  }
-  getID() {
-    return this.id;
-  }
-  getEmail() {
-    return this.email;
-  }
-  getRole() {
-    return this.role;
-  }
-};
-
-class Manager extends Employee {
-  constructor(name, id, email, role, officeNumber) {
-    super(name, id, email, role, officeNumber)
-    this.officeNumber = officeNumber;
-  }
-  getOfficeNumber() {
-    return this.officeNumber;
-  }
-}
-
-class Engineer extends Employee {
-  constructor(name, id, email, role, gitHub) {
-    super(name, id, email, role);
-    this.gitHub = gitHub;
-  }
-  getGithub() {
-    return this.gitHub;
-  }
-}
-
-class Intern extends Employee {
-  constructor(name, id, email, role, school) {
-    super(name, id, email, role);
-    this.school = school;
-  }
-  getSchool() {
-    return this.school;
-  }
-}
+const Employee = require('./lib/employee');
+const Manager = require('./lib/manager')
+const Engineer = require('./lib/engineer')
+const Intern = require('./lib/intern')
 
 const employeeArray = [];
 
@@ -139,13 +98,17 @@ const addNewEmployee = async () => {
     }
   ])
   if (anotherEmployee) newEmployee();
-  else writeFile(employeeArray);
+  else writeFile();
 }
 
-const writeFile = (array) => {
-  fs.writeFileSync("./dist/index.html", pageTemplate(array), err => {
-    if (err) console.log(err);
-    else console.log("page created")
+const writeFile = () => {
+  fs.writeFile('./dist/index.html', generateTeam(employeeArray), err => {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      console.log('page created successfully')
+    }
   })
 }
 

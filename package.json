@@ -1,5 +1,33 @@
 {
   "dependencies": {
     "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.5"
+  },
+  "name": "team-profile-generator",
+  "description": "## Your Task",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "watch": "nodemon index",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gluupo/team-profile-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gluupo/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/gluupo/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.5"
   }
 }

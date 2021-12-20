@@ -35,7 +35,7 @@ const generateTeam = team => {
             <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
         </ul>
     </div>
-</div>
+  </div>
         `;
     };
     // create the html for interns
@@ -53,7 +53,7 @@ const generateTeam = team => {
             <li class="list-group-item">School: ${intern.getSchool()}</li>
         </ul>
     </div>
-</div>
+  </div>
         `;
     };
     const html = [];
@@ -77,8 +77,8 @@ const generateTeam = team => {
 module.exports = team => {
     return `
     <!DOCTYPE html>
-<html lang="en">
-<head>
+  <html lang="en">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -87,8 +87,8 @@ module.exports = team => {
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/c502137733.js"></script>
-</head>
-<body>
+  </head>
+  <body class="bg-secondary">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 jumbotron mb-3 team-heading">
@@ -103,7 +103,7 @@ module.exports = team => {
             </div>
         </div>
     </div>
-</body>
-</html>
+  </body>
+  </html>
     `;
 };
