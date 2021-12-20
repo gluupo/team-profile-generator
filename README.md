@@ -1,3 +1,10 @@
+# TEAM PROFILE GENERATOR
+
+## table of contents
+- [objective](#objective)
+- [usage](#usage)
+- [visuals](#visuals)
+
 ## objective
 as a manager, i want to generate a webpage that displays my team's basic info so that i have quick access to their emails and github profiles
 
@@ -10,3 +17,4 @@ as a manager, i want to generate a webpage that displays my team's basic info so
 - when user finishes building their team, they exit the application and the html is generated
 
 ## visuals
+
